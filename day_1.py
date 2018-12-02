@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 
-def get_file_content(path):
-    with open(path, "r+t") as f:
-        for line in f:
-            yield line
+from __helpers__ import get_file_content
 
 def calculate_change_of_fq(base_fq, changes_of_fq):
     for change_of_fq in changes_of_fq:
@@ -24,7 +21,7 @@ def get_first_fq_reached_twice(changes_of_fq):
 
 if __name__ == "__main__":
     base_fq = 0
-    changes_of_fq = [int(change) for change in get_file_content("input.txt")]
+    changes_of_fq = [int(change) for change in get_file_content("inputs/day_1.txt")]
 
     final_fq = calculate_change_of_fq(base_fq, changes_of_fq)
     print("Final frequency: {}".format(final_fq))
